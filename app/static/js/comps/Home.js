@@ -151,6 +151,7 @@ class HomePage extends Component {
       detailView = (
         <RoomDetail
           room={rooms.find((r) => r.name == current_room)}
+          key={current_room}
           stuffUpdated={this.stuffUpdated}
         ></RoomDetail>
       );
