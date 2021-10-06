@@ -6,4 +6,4 @@ node_modules
 bundle.js
 .VSCodeCounter
 deploy
-.zip
+*.zip
