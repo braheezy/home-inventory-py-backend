@@ -1,6 +1,6 @@
 from flask import Flask, g
 from flask_cors import CORS
-from config import Config
+from config import *
 from app.db import db
 from flask_jwt_extended import JWTManager
 from flask_restful import Api
@@ -12,8 +12,6 @@ def create_app(config_class=Config):
 
     app = Flask(__name__, static_folder='./public', template_folder='./static')
     app.config.from_object(config_class)
-
-    # Schema.TYPE_MAPPING[ObjectId] = fields.String
 
     # Extension stuff
     # Because we want JS, handles CORS.
