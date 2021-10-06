@@ -11,7 +11,7 @@ from bson import ObjectId
 def create_app(config_class=Config):
 
     app = Flask(__name__, static_folder='./public', template_folder='./static')
-    app.config.from_object(Config)
+    app.config.from_object(config_class)
 
     # Schema.TYPE_MAPPING[ObjectId] = fields.String
 

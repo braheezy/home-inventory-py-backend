@@ -2,6 +2,10 @@ import os, datetime
 
 
 class Config(object):
+    TESTING = False
+
+
+class DevConfig(Config):
     '''
     Configuration of application, default is for DEVELOPMENT
     '''
