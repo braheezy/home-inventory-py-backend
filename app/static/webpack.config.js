@@ -1,7 +1,7 @@
 const resolve = require("path").resolve;
 
 module.exports = {
-  mode: "development",
+  mode: "production",
   // When debugging, allow error to be found in source code
   devtool: "eval-source-map",
   // entry file to figure out dependencies from
@@ -11,11 +11,8 @@ module.exports = {
     contentBase: resolve(__dirname, "../public"),
     publicPath: resolve("../public"),
     watchContentBase: true,
-    // Have devServer only serve some static assets, let
-    // Flask backend serve rest.
-    proxy: {
-      "/": "http://127.0.0.1:5000"
-    }
+    compress: true,
+    port: 9000,
   },
   // where webpack will dump built assets
   output: {
@@ -23,10 +20,10 @@ module.exports = {
     path: resolve("../public"),
     filename: "bundle.js",
     // path in browser e.g. /server/public
-    publicPath: resolve("../public")
+    publicPath: resolve("../public"),
   },
   resolve: {
-    extensions: [".js", ".jsx", ".css"]
+    extensions: [".js", ".jsx", ".css"],
   },
 
   // TODO: move to .babelrc in static/
@@ -45,23 +42,21 @@ module.exports = {
                 "@babel/preset-env",
                 {
                   targets: {
-                    node: "current"
-                  }
-                }
+                    node: "current",
+                  },
+                },
               ],
-              ["@babel/preset-react"]
+              ["@babel/preset-react"],
             ],
-            plugins: [
-              ["@babel/plugin-proposal-class-properties", { loose: true }]
-            ]
-          }
-        }
+            plugins: [["@babel/plugin-proposal-class-properties", { loose: true }]],
+          },
+        },
       },
       {
         // handle css stylesheets
         test: /\.csv$/,
-        loader: "style-loader!css-loader?modules"
-      }
-    ]
-  }
+        loader: "style-loader!css-loader?modules",
+      },
+    ],
+  },
 };
