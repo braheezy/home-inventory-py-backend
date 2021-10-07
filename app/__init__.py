@@ -10,7 +10,7 @@ from bson import ObjectId
 
 def create_app(config_class=Config):
 
-    app = Flask(__name__, static_folder='./public', template_folder='./static')
+    app = Flask(__name__)
     app.config.from_object(config_class)
 
     # Extension stuff

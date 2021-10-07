@@ -16,6 +16,10 @@ class Config(object):
     MONGO_URI = os.environ.get('DATABASE_URL')
 
 
+class ProductionConfig(Config):
+    pass
+
+
 class DevConfig(Config):
     DEBUG = True
 

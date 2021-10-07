@@ -1,9 +1,9 @@
 from app import create_app
 from app.db import db
 from app.main.models import UserDB, RoomDB
-from config import DevConfig
+from config import ProductionConfig
 
-app = create_app(DevConfig)
+app = create_app(ProductionConfig)
 '''
 'flask shell' can be used to launch a shell with the application
 already imported, avoiding tedious retyping of 'import app'
