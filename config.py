@@ -23,7 +23,7 @@ class ProductionConfig(Config):
 class DevConfig(Config):
     DEBUG = True
 
-    MONGO_URI = os.environ.get('DATABASE_URL') or \
+    MONGO_URI = MONGO_URI or \
         'mongodb://' + 'localhost:27017'
 
 
