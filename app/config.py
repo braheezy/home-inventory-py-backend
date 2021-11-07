@@ -17,7 +17,9 @@ class Config(object):
 
 
 class ProductionConfig(Config):
-    pass
+    MONGO_USERNAME = os.environ.get('MONGO_USERNAME')
+    MONGO_PASSWORD = os.environ.get('MONGO_PASSWORD')
+    MONGO_URI = f"mongodb+srv://{MONGO_USERNAME}:{MONGO_PASSWORD}@cluster0.zifu5.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 
 
 class DevConfig(Config):

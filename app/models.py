@@ -1,7 +1,9 @@
-from flask import Flask, g, current_app, json
+from flask import Flask, g, current_app, json, Blueprint
 from marshmallow import Schema, fields, post_load, validate, EXCLUDE
-from app.db import db
+from db import db
 from werkzeug.security import generate_password_hash, check_password_hash
+
+bp = Blueprint('models', __name__)
 
 
 class UserDB(object):

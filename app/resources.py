@@ -1,11 +1,13 @@
-from flask import render_template, jsonify, request
-from app.main.models import UserDB, RoomDB, BlacklistToken, UserSchema, RoomSchema
+from flask import render_template, jsonify, request, Blueprint
+from models import UserDB, RoomDB, BlacklistToken, UserSchema, RoomSchema
 from flask_restful import Resource, reqparse
-from app.db import db
+from db import db
 from pymongo.errors import DuplicateKeyError
 from flask_jwt_extended import (create_access_token, create_refresh_token,
                                 jwt_required, jwt_refresh_token_required,
                                 get_jwt_identity, get_raw_jwt)
+
+bp = Blueprint('resources', __name__)
 
 # For better serialization and stuff
 user_schema = UserSchema()
