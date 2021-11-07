@@ -1,19 +1,17 @@
 from flask import Flask, g
 from flask_cors import CORS
-from config import Config
-from app.db import db
+from db import db
+from config import ProductionConfig
 from flask_jwt_extended import JWTManager
 from flask_restful import Api
 from marshmallow import Schema, fields
 from bson import ObjectId
 
 
-def create_app(config_class=Config):
+def create_app(config_class):
 
-    app = Flask(__name__, static_folder='./public', template_folder='./static')
-    app.config.from_object(Config)
-
-    # Schema.TYPE_MAPPING[ObjectId] = fields.String
+    app = Flask(__name__)
+    app.config.from_object(config_class)
 
     # Extension stuff
     # Because we want JS, handles CORS.
@@ -23,11 +21,12 @@ def create_app(config_class=Config):
     # REST API extension
     api = Api(app)
 
-    import app.main.resources as resources
-    from app.main import models
+    import resources
+    import models
 
-    from app.main import bp as main_bp
-    app.register_blueprint(main_bp)
+    # from app.main import bp as main_bp
+    app.register_blueprint(resources.bp)
+    app.register_blueprint(models.bp)
 
     @jwt.token_in_blacklist_loader
     def check_if_token_in_blacklist(decrypted_token):
@@ -54,3 +53,9 @@ def create_app(config_class=Config):
     api.add_resource(resources.Stuff, '/stuff')
 
     return app
+
+
+application = create_app(ProductionConfig)
+
+if __name__ == "__main__":
+    application.run()

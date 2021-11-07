@@ -5,3 +5,5 @@ node_modules
 .env
 bundle.js
 .VSCodeCounter
+deploy
+*.zip

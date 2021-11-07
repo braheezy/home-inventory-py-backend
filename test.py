@@ -1,10 +1,6 @@
 import unittest
 from app import app
-from config import Config
-
-
-class TestConfig(Config):
-    TESTING = True
+from config import TestConfig
 
 
 class AppTestCase(unittest.TestCase):
