@@ -8,4 +8,5 @@ phases:
 artifacts:
   files:
     - "**/*"
+  name: home-inventory-py-backend-build.zip
   base-directory: app
