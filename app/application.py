@@ -15,7 +15,7 @@ def create_app(config_class):
 
     # Extension stuff
     # Because we want JS, handles CORS.
-    CORS(app)
+    CORS(app, resources={r"/*": {"origins": "*"}})
     logging.getLogger('flask_cors').level = logging.DEBUG
     # JWT for auth.
     jwt = JWTManager(app)
