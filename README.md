@@ -29,3 +29,6 @@ To run the entire application:
 To stop:
 
 `./kill.sh`
+
+# Required Environment Variables
+DATABASE_URL
