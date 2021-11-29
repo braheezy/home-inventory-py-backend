@@ -5,7 +5,7 @@ from werkzeug.local import LocalProxy
 
 class MongoDB(object):
     def __init__(self):
-        print(f'intializing DB instance with this URI: {current_app.config['MONGO_URI']}')
+        print(f"intializing DB instance with this URI: {current_app.config['MONGO_URI']}")
         self.client = MongoClient(current_app.config['MONGO_URI'])
         self.db = self.client.home_inventory_db
 
