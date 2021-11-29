@@ -6,7 +6,7 @@ from flask_jwt_extended import JWTManager
 from flask_restful import Api
 from marshmallow import Schema, fields
 from bson import ObjectId
-
+import logging
 
 def create_app(config_class):
 
@@ -16,6 +16,7 @@ def create_app(config_class):
     # Extension stuff
     # Because we want JS, handles CORS.
     CORS(app)
+    logging.getLogger('flask_cors').level = logging.DEBUG
     # JWT for auth.
     jwt = JWTManager(app)
     # REST API extension
