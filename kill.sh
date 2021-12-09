@@ -1,2 +1,0 @@
-pkill flask
-pkill npm

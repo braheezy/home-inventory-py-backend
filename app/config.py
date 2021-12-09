@@ -6,6 +6,7 @@ class Config(object):
     Configuration of application
     '''
     TESTING = False
+    DEBUG = True
 
     # JWT, hopefully an easy way to do auth
     JWT_SECRET_KEY = os.environ.get('JWT_SECRET_KEY')

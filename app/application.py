@@ -1,7 +1,7 @@
 from flask import Flask, g
 from flask_cors import CORS
 from db import db
-from config import ProductionConfig
+from config import ProductionConfig, DevConfig
 from flask_jwt_extended import JWTManager
 from flask_restful import Api
 from marshmallow import Schema, fields

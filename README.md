@@ -1,3 +1,17 @@
+# Background
+HomeInventoryPy was a hobby project for educational purposes. 
+
+It's a Flask backend (this project) hosting a REST API. Data is persisted with MongoDB. That isn't really interesting, so I wrote a [React frontend](https://github.com/mbraha/home-inventory-py-frontend) to interact with it. Years later, I came back to this project to see if I could host it on AWS, and of course, automate the whole freakin' thing.
+That juicyness can be found [TBD](https://github.com/mbraha/).
+
+# HomeInventoryPy
+It's a stupid idea but it provided just enough meat to cause interesting design problems. You got Users with Rooms, Stuff in those Rooms that have probably have some Value. 
+
+`application.py` is the launch point of the Flask application.
+`config.py` is used to configure the Flask applcation.
+`resources.py` provides the REST API endpoints for callers to use. It uses `models.py` to interact with our data model (Users, Rooms, Stuff, etc.).
+`db.py` is the layer that interacts with the database, currently MongoDB. 
+
 # Prerequisites
 
 1. \*Nix-like environment
@@ -6,7 +20,7 @@
 
 2. Python 3
 
-   To check, `python3 -V` in a terminal.
+   To check, `python -V` in a terminal.
 
 3. MongoDB
 
@@ -22,13 +36,8 @@ In the root of the project, run the install script:
 
 # Usage
 
-To run the entire application:
+Update `config.py` and `application.py` to use the correct configuration. Your call.
 
-`./dev.sh`
+To run:
 
-To stop:
-
-`./kill.sh`
-
-# Required Environment Variables
-DATABASE_URL
+`flask run`
