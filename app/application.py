@@ -56,7 +56,7 @@ def create_app(config_class):
     return app
 
 
-application = create_app(ProductionConfig)
+application = create_app(DevConfig)
 
 if __name__ == "__main__":
     application.run()

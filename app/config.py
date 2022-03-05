@@ -8,6 +8,9 @@ class Config(object):
     TESTING = False
     DEBUG = True
 
+    # Default Mongo passed in by env
+    MONGO_URI = os.environ.get('MONGO_URI')
+
     # JWT, hopefully an easy way to do auth
     JWT_SECRET_KEY = os.environ.get('JWT_SECRET_KEY')
     JWT_REFRESH_TOKEN_EXPIRES = datetime.timedelta(days=3)
@@ -23,8 +26,6 @@ class ProductionConfig(Config):
 
 class DevConfig(Config):
     DEBUG = True
-
-    MONGO_URI = 'mongodb://localhost:27017'
 
 
 class TestConfig(Config):
